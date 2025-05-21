@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte hors ligne avec OpenSeaMap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        // Initialisation de la carte
+        var map = L.map('map').setView([43.243757, 5.365660], 13);
+
+        // Ajout des tuiles OpenStreetMap locales
+        var openStreetMap = L.tileLayer('http://localhost:8000/osm/{z}/{x}/{y}.png', {
+            attribution: 'Données © OpenStreetMap contributors',
+            maxZoom: 19
+        }).addTo(map);
+
+        // Ajout des tuiles OpenSeaMap locales
+        var openSeaMap = L.tileLayer('http://localhost:8000/seamark/{z}/{x}/{y}.png', {
+            attribution: 'Données nautiques © OpenSeaMap contributors',
+            maxZoom: 18
+        }).addTo(map);
+    </script>
+</body>
+</html>

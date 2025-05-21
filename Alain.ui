@@ -1,0 +1,696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Alain malvoisin</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>710</width>
+    <height>686</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>710</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>850</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>CAN bus et NMEA 2000 en temps réél</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <selectedon>:/icones/ps2.png</selectedon>
+   </iconset>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="leftMargin">
+     <number>20</number>
+    </property>
+    <property name="topMargin">
+     <number>10</number>
+    </property>
+    <property name="rightMargin">
+     <number>20</number>
+    </property>
+    <property name="bottomMargin">
+     <number>20</number>
+    </property>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="lab_octet">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(254, 255, 221);</string>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="text">
+       <string>                            Numéro de ligne
+ PGN
+
+ Vient des datas :
+ Significations
+ Valeurs
+ Table</string>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3" rowspan="6" colspan="2">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QWidget" name="widget_2" native="true">
+        <widget class="QTableView" name="table_can">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>20</y>
+           <width>324</width>
+           <height>681</height>
+          </rect>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>310</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(85, 255, 255);</string>
+         </property>
+         <attribute name="horizontalHeaderMinimumSectionSize">
+          <number>24</number>
+         </attribute>
+         <attribute name="verticalHeaderVisible">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="verticalHeaderDefaultSectionSize">
+          <number>30</number>
+         </attribute>
+        </widget>
+        <widget class="QLabel" name="label_4">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>316</width>
+           <height>16</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>Table d'affichage des données reçues du bus CAN.</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QWidget" name="widget_4" native="true">
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>95</y>
+         <width>261</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Visualisation du résultat en NMEA 2000</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="check_buffer">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>55</y>
+         <width>16</width>
+         <height>36</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_9">
+       <property name="geometry">
+        <rect>
+         <x>115</x>
+         <y>65</y>
+         <width>191</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Remplir la table en temps réel-&gt;</string>
+       </property>
+       <property name="buddy">
+        <cstring>check_buffer</cstring>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lab_connection">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>316</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 85, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="2">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(255, 255, 127);</string>
+      </property>
+      <widget class="QLineEdit" name="line_nmea">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>55</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="line_table">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>35</y>
+         <width>51</width>
+         <height>21</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>55</x>
+         <y>60</y>
+         <width>121</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>NMEA 2000 en CSV</string>
+       </property>
+       <property name="buddy">
+        <cstring>line_nmea</cstring>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>55</x>
+         <y>35</y>
+         <width>131</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Buffer de la Table CAN</string>
+       </property>
+       <property name="buddy">
+        <cstring>line_table</cstring>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>5</x>
+         <y>10</y>
+         <width>321</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Nombre de trame dans la table et sur NMEA 2000</string>
+       </property>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="2">
+     <widget class="QWidget" name="widget_5" native="true">
+      <widget class="QWidget" name="widget_6" native="true">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>-5</y>
+         <width>331</width>
+         <height>100</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>8</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <widget class="QCheckBox" name="check_file">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>55</y>
+          <width>246</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Enregistrer le bus CAN sur le fichier</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="check_nmea">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>75</y>
+          <width>226</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Lancer le NMEA 2000 en temps réel</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_file">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>5</y>
+          <width>321</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Fichier texte du bus CAN ------------------------</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="lab_csv">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>25</y>
+          <width>321</width>
+          <height>16</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Fichier CSV en NMEA 2000 ---------------------</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+    <item row="3" column="0" rowspan="2" colspan="2">
+     <widget class="QWidget" name="widget_3" native="true">
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>105</x>
+         <y>80</y>
+         <width>66</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../HUAHINE/images/VoilierImage2.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>155</x>
+         <y>65</y>
+         <width>66</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../HUAHINE/images/VoilierImage.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_8">
+       <property name="geometry">
+        <rect>
+         <x>25</x>
+         <y>80</y>
+         <width>66</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../HUAHINE/images/Spi.png</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>-10</x>
+         <y>10</y>
+         <width>341</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../HUAHINE/images/regate.jpg</pixmap>
+       </property>
+       <property name="scaledContents">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <zorder>label_11</zorder>
+      <zorder>label_7</zorder>
+      <zorder>label_10</zorder>
+      <zorder>label_8</zorder>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>710</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFichier">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+    <addaction name="actionOuvrir"/>
+    <addaction name="actionVoir"/>
+    <addaction name="actionExport"/>
+    <addaction name="actionImporter"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuitter"/>
+   </widget>
+   <widget class="QMenu" name="menuTable">
+    <property name="title">
+     <string>Aide</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuBus_CAN">
+    <property name="title">
+     <string>Bus CAN</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionClose"/>
+    <addaction name="actionRead"/>
+    <addaction name="actionStop"/>
+    <addaction name="separator"/>
+    <addaction name="actionStatus"/>
+   </widget>
+   <widget class="QMenu" name="menuCarte">
+    <property name="title">
+     <string>Carte</string>
+    </property>
+    <addaction name="actionMap"/>
+   </widget>
+   <addaction name="menuFichier"/>
+   <addaction name="menuBus_CAN"/>
+   <addaction name="menuCarte"/>
+   <addaction name="menuTable"/>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOuvrir"/>
+   <addaction name="actionVoir"/>
+   <addaction name="actionExport"/>
+   <addaction name="actionImporter"/>
+   <addaction name="separator"/>
+   <addaction name="actionOpen"/>
+   <addaction name="actionClose"/>
+   <addaction name="actionRead"/>
+   <addaction name="actionStop"/>
+   <addaction name="actionMap"/>
+   <addaction name="actionStatus"/>
+   <addaction name="separator"/>
+   <addaction name="actionQuitter"/>
+  </widget>
+  <action name="actionQuitter">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/sortie.png</normaloff>../HUAHINE/icones/sortie.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quitter</string>
+   </property>
+   <property name="toolTip">
+    <string>Quitter l'application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionImporter">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/Table.ico</normaloff>../HUAHINE/icones/Table.ico</iconset>
+   </property>
+   <property name="text">
+    <string>Importer le texte CAN sur la table</string>
+   </property>
+   <property name="toolTip">
+    <string>Importer le fchier CAN dans la table</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionVoir">
+   <property name="icon">
+    <iconset>
+     <normaloff>../GUI_Alain/icones/Lire.png</normaloff>../GUI_Alain/icones/Lire.png</iconset>
+   </property>
+   <property name="text">
+    <string>Lire le fichier texte</string>
+   </property>
+   <property name="toolTip">
+    <string>Lire le fichier du bus CAN</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+  <action name="actionOuvrir">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/Ouvir.gif</normaloff>../HUAHINE/icones/Ouvir.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Enregistrer le bus CAN sur du texte</string>
+   </property>
+   <property name="toolTip">
+    <string>Ouvrir un fichier texte</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/OpenMal.gif</normaloff>../HUAHINE/icones/OpenMal.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Ouvre l'dapatateur</string>
+   </property>
+   <property name="toolTip">
+    <string>Ouvre l'adaptateur CAN</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/CloseMal.gif</normaloff>../HUAHINE/icones/CloseMal.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Ferme l'adaptateur</string>
+   </property>
+   <property name="toolTip">
+    <string>Ferme l'adaptateur CAN</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="actionRead">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/Talk.gif</normaloff>../HUAHINE/icones/Talk.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Lecture du  bus CAN</string>
+   </property>
+   <property name="toolTip">
+    <string>Lecture sur le bus CAN</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionStatus">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/Status.png</normaloff>../HUAHINE/icones/Status.png</iconset>
+   </property>
+   <property name="text">
+    <string>Lire le Status</string>
+   </property>
+   <property name="toolTip">
+    <string>Lire le Status du bus CAN</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionStop">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/STOP.gif</normaloff>../HUAHINE/icones/STOP.gif</iconset>
+   </property>
+   <property name="text">
+    <string>STOP la lecture</string>
+   </property>
+   <property name="toolTip">
+    <string>STOP la lecture CAN</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/ps2.png</normaloff>../HUAHINE/icones/ps2.png</iconset>
+   </property>
+   <property name="text">
+    <string>A propos</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/csv.gif</normaloff>../HUAHINE/icones/csv.gif</iconset>
+   </property>
+   <property name="text">
+    <string>Exporter en CSV le NMEA 2000</string>
+   </property>
+   <property name="toolTip">
+    <string>Exporter NMEA 2000 vers un CSV</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionMap">
+   <property name="icon">
+    <iconset>
+     <normaloff>../HUAHINE/icones/VoilierImage.png</normaloff>../HUAHINE/icones/VoilierImage.png</iconset>
+   </property>
+   <property name="text">
+    <string>Voir la carte</string>
+   </property>
+   <property name="toolTip">
+    <string>Voir le voilier sur la carte</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../GUI_Alain/images/alain.qrc"/>
+ </resources>
+ <connections/>
+</ui>

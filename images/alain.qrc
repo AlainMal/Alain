@@ -1,0 +1,25 @@
+<RCC>
+  <qresource prefix="/images">
+    <file>ImageVoilier.jfif</file>
+    <file>Volier_Image.png</file>
+    <file>CVS2.png</file>
+    <file>exporter.png</file>
+    <file>Lire.png</file>
+    <file>LireB.ico</file>
+    <file>OIP.gif</file>
+    <file>Ouvir.gif</file>
+    <file>ps22.png</file>
+    <file>Quitter.png</file>
+    <file>Read.png</file>
+    <file>Reading.png</file>
+    <file>sortie.png</file>
+    <file>Status.png</file>
+    <file>STOP.jpg</file>
+    <file>Table.ico</file>
+    <file>Table.png</file>
+    <file>USB.png</file>
+    <file>Voilier.png</file>
+    <file>Voir.png</file>
+    <file>ps22.png</file>
+  </qresource>
+</RCC>
